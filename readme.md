@@ -3,16 +3,16 @@
 ## Goal
 - name
 - description()
-- status(at): bad|ok|good|great|on_track
+- status(at): bad|ok|good|great|on_track|unknown
 - history(from, until): [{date, value, status}]
 
 ## Objective: Goal
-- state
+- description
 - bases: [Connection]
 - reasons: [Connection]
 
 ## Connection
-- type: requirement|definition|progress|contributor|conflict|impediment
+- type: requirement|definition|progress|contributor
 - inputs: [Goal]
 - objectives: [Objective]
 
@@ -28,7 +28,7 @@
 
 ## Metric: Signal
 - Source
-- is_due(): Date
+- due(): Date
 - add(value, at)
 
 ## Source
@@ -44,7 +44,7 @@
 
 ## Calculated: Signal
 - inputs: [Signal]
-- formula: stringSo jetz
+- formula
 
 ## Span
 - amount

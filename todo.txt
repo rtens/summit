@@ -1,0 +1,42 @@
+Usecase: weight loss Objective
+
+! set_objective
+name: healthy
+state: I am phsically healthy
+
+! require_goal
+objective: healthy
+requirement: weigh <90
+
+! set_target
+name: weigh <90
+signal: avg weight
+good: 90
+bad: 95
+
+! add_smoothed_signal
+name: avg weight
+description: Average weight
+input: weight
+span: {amount:9, unit: day}
+
+! add_metric
+name: weight
+description: Current weight
+frequency: daily
+
+! add_progress
+goal: healthy
+progress: lose weight
+
+! set_target
+name: lose weight
+signal: avg weight loss
+good: 0.5
+bad: 0
+
+! add_change_signal
+name: avg weight loss
+description: Lost kg per week
+input: avg weight
+span: {amount: 7, unit: day}

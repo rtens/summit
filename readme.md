@@ -7,7 +7,7 @@
 - history(from, until): [{date, value, status}]
 
 ## Objective: Goal
-- description
+- state
 - bases: [Connection]
 - reasons: [Connection]
 

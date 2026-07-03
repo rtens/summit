@@ -8,10 +8,10 @@
 
 ## Objective: Goal
 - description
-- bases: [Relation]
-- reasons: [Relation]
+- bases: [Connection]
+- reasons: [Connection]
 
-## Relation
+## Connection
 - type: requirement|definition|progress|contributor|conflict|impediment
 - inputs: [Goal]
 - objectives: [Objective]

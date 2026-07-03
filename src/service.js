@@ -7,15 +7,21 @@ export default class Service {
   }
 
   async answer(query, content = null) {
-    return this._handle('queries', query, content)
+    return this._handle('query', query, content)
   }
 
   async execute(command, content) {
-    await this._handle('commands', command, content)
+    await this._handle('command', command, content)
   }
 
   async _handle(type, message, content) {
-    const Handler = (await import(`./${type}/${message}.js`)).default
+    let Handler
+    try {
+      const module = await import(`./${type}/${message}.js`)
+      Handler = module.default
+    } catch {
+      throw new Error(`Unknown ${type}: ${message}`)
+    }
     return new Handler(this.store).handle(content)
   }
-} 
+}

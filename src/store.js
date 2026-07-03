@@ -3,11 +3,11 @@ import { DatabaseSync } from 'node:sqlite'
 export default class Store {
 
   static in_memory() {
-    return new Store(new DatabaseSync(':memory:'))
+    return new Store(':memory:')
   }
 
-  constructor(database) {
-    this.db = database
+  constructor(path) {
+    this.db = new DatabaseSync(path)
   }
 
   init(bucket) {
